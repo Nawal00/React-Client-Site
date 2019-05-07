@@ -7,6 +7,7 @@ import './sass/style.sass'
 
 import Home from './components/Home'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 
 class App extends React.Component {
@@ -20,6 +21,7 @@ class App extends React.Component {
             <Route path="/" component={Home} />
           </Switch>
         </main>
+        <Footer />
       </BrowserRouter>
     )
   }
