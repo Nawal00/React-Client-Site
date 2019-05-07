@@ -1,0 +1,57 @@
+$primary-color: #000000
+$theme: #FF3B45
+
+html
+  font-size: 16px
+
+h1, h2, h3, h4
+  text-transform: uppercase
+  letter-spacing: 1px
+  font-weight: 600
+  letter-spacing: 2px
+
+p
+  font-family: 'Tajawal', sans-serif
+  font-size: 1.1rem
+
+.sub-header
+  color: $theme
+
+nav
+  background: #FFFFFF
+  letter-spacing: 1px
+  transition: 0.5s
+  padding-bottom: 0rem
+  .navbar-brand
+    color: $theme
+    text-transform: uppercase
+    font-weight: 700
+    .tit
+      font-size: 18.8px
+      border-bottom: 1.4px solid black
+    .cons
+      font-size: 12px
+      letter-spacing: 3px
+      padding-left: 11px
+      margin-bottom: 0
+
+.nav-link
+  text-transform: uppercase
+  text-decoration: none
+  color: $theme
+  font-weight: 700
+  &:hover
+    color: #000000
+
+.nav-link::after
+  content: ""
+  display: block
+  color: #000000
+  width: 0
+  border-bottom: 2px solid #000000
+  transition: .5s
+  margin: auto
+
+
+.nav-link:hover::after
+  width: 100%

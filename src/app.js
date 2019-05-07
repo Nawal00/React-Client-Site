@@ -2,10 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import 'bootstrap/dist/css/bootstrap.min.css'
+import  'bootstrap/dist/css/bootstrap.css'
 import './sass/style.sass'
 
-import Home from './components/home'
+import Home from './components/Home'
+import Navbar from './components/Navbar'
 
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
 
     return (
       <BrowserRouter>
+        <Navbar />
         <main>
           <Switch>
             <Route path="/" component={Home} />
