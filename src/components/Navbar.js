@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -11,13 +12,13 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarResponsive">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="index.html">Home</a>
+            <Link to="/" className="nav-link js-scroll-trigger">Home</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="project.html">Projects</a>
+            <Link to="/projects" className="nav-link js-scroll-trigger">Projects</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link js-scroll-trigger" href="contact.html">Contact</a>
+            <Link to="/contact" className="nav-link js-scroll-trigger">Contact</Link>
           </li>
         </ul>
       </div>
