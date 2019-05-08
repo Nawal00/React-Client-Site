@@ -48,9 +48,10 @@ class Contact extends React.Component {
     return (
       <div id="contact">
         <form onSubmit={this.formSubmit} className="container">
-          <div className="form-group">
-            <div className="col-sm-6">
-              <label className="message" htmlFor="message-input">Your Message</label>
+          <div className="col-sm-6">
+            <h3 className=""> Get in touch </h3>
+            <div className="form-group">
+              <label className="message" htmlFor="message-input">Message</label>
               <textarea onChange={this.handleChange} name="message" className="form-control" type="text" placeholder="Please write your message here" value={this.state.message} required
               />
             </div>
@@ -58,20 +59,20 @@ class Contact extends React.Component {
 
           <div className="form-group">
             <div className="col-sm-6">
-              <label className="message-name" htmlFor="message-name">Your Name</label>
+              <label className="message-name" htmlFor="message-name">Name</label>
               <input onChange={this.handleChange} name="name" className="form-control" type="text" placeholder="Your Name" value={this.state.name}/>
             </div>
           </div>
 
           <div className="form-group">
             <div className="col-sm-6">
-              <label className="message-email" htmlFor="message-email">Your Email</label>
+              <label className="message-email" htmlFor="message-email">Email</label>
               <input onChange={this.handleChange} name="email" className="form-control" type="email" placeholder="your@email.com" value={this.state.email} />
             </div>
           </div>
 
           <div className="col-sm-6">
-            <button type="submit" className="btn btn-primary">{ this.state.buttonText }</button>
+            <button type="submit" className="btn btn-danger">{ this.state.buttonText }</button>
           </div>
         </form>
       </div>
