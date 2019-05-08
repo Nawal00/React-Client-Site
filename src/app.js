@@ -2,7 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
-import  'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'jquery'
+import 'popper.js'
+import 'bootstrap/dist/js/bootstrap.bundle.min'
 import './sass/style.sass'
 
 import Navbar from './components/Navbar'
