@@ -106,7 +106,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section id="testimonials" className=" text-center">
+      <section id="testimonials" className="text-center">
         <div className="carousel slide" data-ride="carousel">
           <h3> Testimonials </h3>
           <div className="carousel-inner ">
