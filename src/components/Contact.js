@@ -47,20 +47,25 @@ class Contact extends React.Component {
   render () {
     return (
       <div id="contact">
-        <form className="contact-form" onSubmit={this.formSubmit}>
-          <label className="message" htmlFor="message-input">Your Message</label>
-          <textarea onChange={this.handleChange} name="message" className="message-input" type="text" placeholder="Please write your message here" value={this.state.message} required
-          />
-
-          <label className="message-name" htmlFor="message-name">Your Name</label>
-          <input onChange={this.handleChange} name="name" className="message-name" type="text" placeholder="Your Name" value={this.state.name}/>
-
-          <label className="message-email" htmlFor="message-email">Your Email</label>
-          <input onChange={this.handleChange} name="email" className="message-email" type="email" placeholder="your@email.com" value={this.state.email} />
-
-          <div className="button-container">
-            <button type="submit" className="button button-primary">{ this.state.buttonText }</button>
+        <form onSubmit={this.formSubmit} className="container">
+          <div className="form-group">
+            <label className="message" htmlFor="message-input">Your Message</label>
+            <textarea onChange={this.handleChange} name="message" className="form-control" type="text" placeholder="Please write your message here" value={this.state.message} required
+            />
           </div>
+
+          <div className="form-group">
+            <label className="message-name" htmlFor="message-name">Your Name</label>
+            <input onChange={this.handleChange} name="name" className="form-control" type="text" placeholder="Your Name" value={this.state.name}/>
+          </div>
+
+          <div className="form-group">
+            <label className="message-email" htmlFor="message-email">Your Email</label>
+            <input onChange={this.handleChange} name="email" className="form-control" type="email" placeholder="your@email.com" value={this.state.email} />
+          </div>
+
+          <button type="submit" className="btn btn-primary">{ this.state.buttonText }</button>
+
         </form>
       </div>
     )
