@@ -11,31 +11,26 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.use(express.static(`${__dirname}/dist`))
-
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
-
-app.listen(process.env.PORT, () => console.log(`Express is serving the dist folder on port ${process.env.PORT}`))
-
-app.post('https://client-site-sighapora.herokuapp.com/mail', (req, res) => {
+app.post('https://client-site-sighapora.herokuapp.com/submit', (req, res) => {
   const data = req.body
+  console.log(req.body)
 
   const smtpTransport = nodemailer.createTransport({
-    service: 'Gmail',
-    port: 465,
+    service: 'gmail',
+    port: 25,
     auth: {
       user: process.env.EMAIL,
-      pass: process.env.PASS
+      pass: process.env. PASS
     }
   })
 
   const mailOptions = {
-    from: data.email,
+    from: this.state.email,
     to: process.env.EMAIL,
     subject: 'Quote & Services',
     html: `<p>${data.name}</p>
-    <p>${data.email}</p>
-    <p>${data.message}</p>`
+    <p>${this.state.email}</p>
+    <p>${this.state.message}</p>`
   }
 
   smtpTransport.sendMail(mailOptions,
@@ -47,5 +42,10 @@ app.post('https://client-site-sighapora.herokuapp.com/mail', (req, res) => {
       }
       smtpTransport.close()
     })
-
 })
+
+app.use(express.static(`${__dirname}/dist`))
+
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+
+app.listen(process.env.PORT, () => console.log(`Express is serving the dist folder on port ${process.env.PORT}`))
