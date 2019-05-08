@@ -28,7 +28,7 @@ class Contact extends React.Component {
       message: this.state.message
     }
 
-    axios.post('API_URI', data)
+    axios.post('https://client-site-sighapora.herokuapp.com/mail', data)
       .then( res => {
         this.setState({ sent: true }, this.resetForm())
       })

@@ -17,7 +17,7 @@ app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
 app.listen(process.env.PORT, () => console.log(`Express is serving the dist folder on port ${process.env.PORT}`))
 
-app.post('/api/v1', (req, res) => {
+app.post('https://client-site-sighapora.herokuapp.com/mail', (req, res) => {
   const data = req.body
 
   const smtpTransport = nodemailer.createTransport({
