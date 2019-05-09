@@ -178,20 +178,6 @@ footer
     padding-bottom: 1rem
     color: $theme
 
-form.container
-  padding: 3rem
-  max-width: 70%
-  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7)
-  .row
-    padding-top: .5rem
-  div.btn
-    padding-top: 2rem
-
-.company-info h3, .company-info ul
-  text-align: center
-  padding: 0 0 1rem 0
-  list-style: none
-
 
 #portfolio
   padding: 8rem 0 6rem
@@ -263,7 +249,19 @@ form.container
   h3
     padding-bottom: 2rem
 
+form.container
+  padding: 3rem
+  max-width: 70%
+  box-shadow: 0 0 20px 0 rgba(72,94,116,0.7)
+  .row
+    padding-top: .5rem
+  div.btn
+    padding-top: 2rem
 
+.company-info h3, .company-info ul
+  text-align: center
+  padding: 0 0 1rem 0
+  list-style: none
 
 @media(min-width:767px)
   #portfolio
@@ -338,3 +336,10 @@ form.container
 
 
   .modal-backdrop
+
+@media(max-width:767px)
+
+  form.container
+    padding: 3rem
+    max-width: 90%
+    box-shadow: 0 0 20px 0 rgba(72,94,116,0.7)

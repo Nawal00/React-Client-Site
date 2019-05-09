@@ -49,12 +49,12 @@ class Contact extends React.Component {
   render () {
     return (
       <div id="contact">
-      
+
         <form onSubmit={this.formSubmit} className="container card">
           <div className="company-info">
             <h3>Get in touch</h3>
             <ul>
-              <li><i className="fa fa-road"></i>  44 Something st</li>
+              <li><i className="fas fa-map-marker-alt"></i>  44 Something st</li>
               <li><i className="fa fa-phone"></i>  (+447) 555-5555</li>
               <li><i className="fa fa-envelope"></i>  test@email.test</li>
             </ul>
