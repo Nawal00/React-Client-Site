@@ -3,11 +3,11 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
-const path = require('path')
+// const path = require('path')
 const cors = require('cors')
 const app = express()
 
-app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use(express.static(`${__dirname}/dist`))
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(cors())
@@ -47,6 +47,6 @@ app.post('/api/submit', (req, res) => {
 })
 
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`))
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/assets/index.html`))
 
 app.listen(process.env.PORT, () => console.log(`Express is serving the dist folder on port ${process.env.PORT}`))

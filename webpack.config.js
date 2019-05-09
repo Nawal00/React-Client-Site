@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './public/app.js',
+  entry: './src/app.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve('dist'),
@@ -37,12 +37,12 @@ module.exports = {
     new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'public/index.html',
+      template: 'src/index.html',
       filename: 'index.html',
       inject: 'body'
     }),
     new CopyWebpackPlugin([
-      { from: 'public/assets', to: 'assets'}]
+      { from: 'src/assets', to: 'assets'}]
     )
   ]
 }
