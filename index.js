@@ -3,33 +3,36 @@ require('dotenv').config()
 const express = require('express')
 const bodyParser = require('body-parser')
 const nodemailer = require('nodemailer')
+const path = require('path')
 const cors = require('cors')
 const app = express()
 
+app.use('/public', express.static(path.join(__dirname, 'public')))
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.post('https://client-site-sighapora.herokuapp.com/submit', (req, res) => {
+app.post('/api/submit', (req, res) => {
   const data = req.body
-  console.log(req.body)
+  console.log(data)
 
   const smtpTransport = nodemailer.createTransport({
     service: 'gmail',
     port: 25,
     auth: {
       user: process.env.EMAIL,
-      pass: process.env. PASS
+      pass: process.env.PASS
     }
   })
 
   const mailOptions = {
-    from: this.state.email,
+    from: data.email,
     to: process.env.EMAIL,
     subject: 'Quote & Services',
-    html: `<p>${data.name}</p>
-    <p>${this.state.email}</p>
-    <p>${this.state.message}</p>`
+    html:
+    `<p>${data.email}</p>
+    <p>${data.message}</p>
+    <p>${data.name}</p>`
   }
 
   smtpTransport.sendMail(mailOptions,
@@ -43,8 +46,7 @@ app.post('https://client-site-sighapora.herokuapp.com/submit', (req, res) => {
     })
 })
 
-app.use(express.static(`${__dirname}/dist`))
 
-app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
+app.get('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`))
 
 app.listen(process.env.PORT, () => console.log(`Express is serving the dist folder on port ${process.env.PORT}`))

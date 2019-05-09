@@ -15,6 +15,8 @@ class Contact extends React.Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.formSubmit = this.formSubmit.bind(this)
+    this.resetForm = this.resetForm.bind(this)
+    // this.handleScroll = this.handleScroll.bind(this)
   }
 
 
@@ -22,26 +24,24 @@ class Contact extends React.Component {
     this.setState({[name]: value})
   }
 
-  formSubmit(e){
-    e.preventDefault()
-    this.setState({ buttonText: '...sending' })
-
-    axios.post('https://client-site-sighapora.herokuapp.com/submit', this.state.data)
-      .then( res => {
-        this.setState({ sent: true }, this.resetForm())
-      })
-      .catch( () => {
-        console.log('Message not sent')
-      })
-  }
-
   resetForm(){
     this.setState({
       name: '',
       message: '',
       email: '',
-      buttonText: 'Message Sent'
+      buttonText: 'Message Sent',
+      send: true
     })
+  }
+
+  formSubmit(e){
+    e.preventDefault()
+    this.setState({ buttonText: '...sending' })
+    const { name, message, email} = this.state
+
+    axios.post('/api/submit', { name, message, email })
+      .then(() => this.setState(this.resetForm()))
+      .catch(() => console.log('Message not sent'))
   }
 
   render () {
@@ -72,7 +72,7 @@ class Contact extends React.Component {
           </div>
 
           <div className="col-sm-6">
-            <button type="submit" className="btn btn-danger">{ this.state.buttonText }</button>
+            <button type="submit" className= {this.state.buttonText === 'Message Sent'? 'btn btn-success' : 'btn btn-danger' }>{ this.state.buttonText }</button>
           </div>
         </form>
       </div>

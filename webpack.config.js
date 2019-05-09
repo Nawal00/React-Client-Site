@@ -1,14 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const Dotenv = require('dotenv-webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
-  entry: './src/app.js',
+  entry: './public/app.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve('dist')
+    path: path.resolve('dist'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -24,18 +25,24 @@ module.exports = {
     open: true,
     port: 8000,
     watchContentBase: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        secure: false
+      }
+    }
   },
   plugins: [
     new Dotenv(),
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: 'src/index.html',
+      template: 'public/index.html',
       filename: 'index.html',
       inject: 'body'
     }),
     new CopyWebpackPlugin([
-      { from: 'src/assets', to: 'assets'}]
+      { from: 'public/assets', to: 'assets'}]
     )
   ]
 }
